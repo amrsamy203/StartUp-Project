@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<mat-card >
+  <mat-card-title><h5>Terms Needed:</h5></mat-card-title>
+  <mat-grid-list cols="4" rowHeight="2:1">
+      <mat-grid-tile *ngFor="let term of apiService.terms;">
+        <mat-card class="primary" style="width: 20rem;">
+            <mat-card-title><h5 class="card-title">{{term.type}}</h5></mat-card-title>
+          <mat-card-subtitle class="card-subtitle mb-2 text-muted"><h6>{{term.subject}}</h6></mat-card-subtitle>
+          <mat-card-content class="card-body">
+            <p class="card-text">{{term.details}}</p>
+            <mat-checkbox (click)="onCheckChange(term)">Satisfy</mat-checkbox>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <button mat-button (click)="onSubmitOffer()" class="btn btn-primary" >Submit Offer</button>
+</mat-card>

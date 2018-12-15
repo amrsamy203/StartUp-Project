@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">My Profiles</mat-toolbar>
+<mat-card>
+  <mat-card-content>
+    <mat-card-header>
+      <mat-card-title>
+        <h4>You profile</h4>
+      </mat-card-title>
+    </mat-card-header>
+    <form>
+      <mat-form-field>
+        <input [(ngModel)]="BusprofileData.CompanyName" matInput name="CompanyName" placeholder="company name" type="text" />
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input [(ngModel)]="BusprofileData.ManagerName" matInput name="ManagerName" placeholder="Manager Name" type="text" />
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input [(ngModel)]="BusprofileData.CompanyHeadquarters" matInput name="CompanyHeadquarters" placeholder="Company Headquarters"
+          type="text" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input [(ngModel)]="BusprofileData.CompanyPhone" matInput name="CompanyPhone" placeholder="Company Phone" type="number" />
+      </mat-form-field>
+      <br>
+      <mat-card>
+        <mat-form-field>
+          <textarea [(ngModel)]="BusprofileData.Brief" matInput rows="3" name="Brief"></textarea>
+        </mat-form-field>
+      </mat-card>
+      <br>
+      <div *ngFor="let item of array">
+        <mat-checkbox [(ngModel)]="item.checked" name="items">{{item.name}}</mat-checkbox>
+      </div>
+      <br>
+      <button (click)="post()" mat-raised-button color="primary">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>

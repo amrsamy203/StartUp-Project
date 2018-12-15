@@ -1,0 +1,11 @@
+<div *ngIf="authService.typeExists">
+    <div *ngIf="authService._type==1"> 
+        <app-home-person></app-home-person>
+    </div>
+    <div *ngIf="authService._type==2"> 
+            <app-home-business></app-home-business>
+    </div>
+    <div *ngIf="authService._type==0"> 
+         <app-home-person></app-home-person>
+    </div>    
+</div>

@@ -1,0 +1,21 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <h4>Register new user</h4>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field>
+          <input [(ngModel)] = "registerData.email" name="email" matInput placeholder="email">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input [(ngModel)] = "registerData.pwd" name="password" matInput placeholder="password" type="password">
+        </mat-form-field>
+        <br>
+          <button (click) = "post()" *ngIf= "type==1" routerLink='/Perprofile'   mat-raised-button color="primary" >Register</button>
+          <button (click) = "post()" *ngIf= "type==2" routerLink='/Busprofile'  mat-raised-button color="primary" >Register</button>
+      </form>
+    </mat-card-content>
+  </mat-card>

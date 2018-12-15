@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<mat-card >
+  <h4>Project Data</h4>
+  <form class="project-data" *ngIf='apiService.project'>
+
+    <mat-form-field>
+
+      <input matInput  [(ngModel)]="apiService.project.name" name="projName" placeholder="project name" value="" readonly>
+    </mat-form-field>
+    <br>
+
+    project size:
+    <br>
+    <mat-button-toggle-group [value]="apiService.project.size">
+      <mat-button-toggle value="Small">Small</mat-button-toggle>
+      <mat-button-toggle value="Medium">Medium</mat-button-toggle>
+      <mat-button-toggle value="Large">Large</mat-button-toggle>
+    </mat-button-toggle-group>
+    <br>
+
+    <mat-form-field>
+        <input matInput  [(ngModel)]= "apiService.project.startDate" name="projDate" [matDatepicker]="picker" placeholder="project start date" readonly>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <textarea [(ngModel)]="apiService.project.about" name="projAbout" matInput placeholder="about project" readonly></textarea>
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-select placeholder="Project Type" [(ngModel)]="apiService.project.projectType" name="projType">
+      <mat-option *ngFor="let projectType of projectTypes" [value]="projectType.value">
+        {{projectType.viewValue}}
+      </mat-option>
+    </mat-select>
+    <br>
+    <mat-card >
+    <mat-card-title><h5>People Involved</h5></mat-card-title>
+    <mat-grid-list cols="4" rowHeight="2:1">
+        <mat-grid-tile *ngFor="let person of apiService.project.peopleInvolved">
+          <mat-card style="width: 18rem;">
+              <mat-card-title><h5>{{person.name}}</h5></mat-card-title>
+            <mat-card-subtitle class="card-subtitle mb-2 text-muted"><h6>{{person.rule}}</h6></mat-card-subtitle>
+            <mat-card-content>
+              <p class="card-text">{{person.about}}</p>
+              <a href="{{person.profile}}" class="card-link">His profile</a>
+              <a href="{{person.prev_projects}}" class="card-link">His Projects</a>
+              <button mat-flat-button>x</button>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card>
+    <br>
+
+    <mat-card >
+      <mat-card-title><h5>Terms Needed:</h5></mat-card-title>
+      <mat-grid-list cols="4" rowHeight="2:1">
+          <mat-grid-tile *ngFor="let termNeeded of apiService.project.termsNeeded">
+            <mat-card class="primary" style="width: 20rem;">
+                <mat-card-title><h5 class="card-title">{{termNeeded.type}}</h5></mat-card-title>
+              <mat-card-subtitle class="card-subtitle mb-2 text-muted"><h6>{{termNeeded.subject}}</h6></mat-card-subtitle>
+              <mat-card-content class="card-body">
+                <p class="card-text">{{termNeeded.details}}</p>
+                <button mat-flat-button style="float: right;">x</button>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card>
+    <br>
+  </form>
+</mat-card>

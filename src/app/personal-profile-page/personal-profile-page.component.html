@@ -1,0 +1,39 @@
+<mat-toolbar color="primary">My Profiles</mat-toolbar>
+<mat-card>
+  <mat-card-content>
+    <mat-card-header>
+      <mat-card-title>
+        <h4>You profile</h4>
+      </mat-card-title>
+    </mat-card-header>
+    <form>
+      <mat-form-field>
+        <input [(ngModel)]="PerprofileData.firstName" matInput name="first name" placeholder="first name" type="text" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input [(ngModel)]="PerprofileData.lastName" matInput name="last name" placeholder="last name" type="text" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input [(ngModel)]="PerprofileData.phoneNumber" matInput name="phone number" placeholder="phone number" type="text" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input [(ngModel)]="PerprofileData.nationalId" matInput name="national id" placeholder="national id" type="text" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input [(ngModel)]="PerprofileData.date" matInput type="date" name="date" />
+      </mat-form-field>
+      <br />
+      <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+      <br>
+      <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" (click)="post()" routerLink='/Home'
+        mat-raised-button [disabled]="!uploader.getNotUploadedItems().length">
+        Submit
+      </button>
+      <br>
+    </form>
+  </mat-card-content>
+</mat-card>

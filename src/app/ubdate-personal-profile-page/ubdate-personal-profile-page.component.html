@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">My Profiles</mat-toolbar>
+<mat-card>
+  <mat-card-content>
+    <mat-card-header>
+      <mat-card-title> <h4>You profile</h4> </mat-card-title>
+    </mat-card-header>
+    <form>
+      <mat-form-field>
+        <input  [(ngModel)]= "PerProfileUb.email" matInput name="email" placeholder="email" type="text"/>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+         <input  [(ngModel)]= "PerProfileUb.pwd" matInput name="Password" placeholder="password" type="text"/>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input   [(ngModel)]= "PerProfileUb.firstName" matInput name="firstName"placeholder="firstName" type="text"/>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input  [(ngModel)] = "PerProfileUb.lastName" matInput name="lastName" placeholder="lastName" type="text" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input  [(ngModel)] = "PerProfileUb.phoneNumber" matInput name="phone number" placeholder="phone number"type="text" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input [(ngModel)] = "PerProfileUb.nationalId" matInput name="national id" placeholder="national id" type="number" />
+      </mat-form-field>
+      <br />
+      <textarea >Date: {{PerProfileUb?.date}}</textarea>
+      <br />
+      <img src='../../assets/images/{{PerProfileUb?.path}}' style="height: 200px; width: 200px;"/>
+      <br>
+      <button (click)= "post()" mat-raised-button color="primary">Ubdate</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
